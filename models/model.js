@@ -7,4 +7,4 @@ const batoulSchema = new Schema({
     thirdtick: { type: String, required: true },
 });
 const Batoul = model('Batoul', batoulSchema);
-module.exports = Batoul;
+module.exports = Batoul; 

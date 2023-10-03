@@ -6,11 +6,13 @@ const app = express();
 const connectDB = require('./database/db');
 const bodyParser = require('body-parser');
 const data = require('./routes/route');
+const servicedata = require('./routes/serviceroute');
 const cors = require('cors');
 const PORT = 5000
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/batoul', data);
+app.use('/service',servicedata);
 app.listen(PORT, () => {
     connectDB();
     console.log(`Server is running on http://localhost:${PORT}`);
