@@ -1,8 +1,9 @@
-const Batoul = require('../models/model');
-const postb = async (req, res) => {
+const Whyus = require('../models/whyus'); // Update the model import
+
+const postw = async (req, res) => {
     console.log(req.body);
     try {
-        const insertedData = await Batoul.create(req.body);
+        const insertedData = await Whyus.create(req.body);
         res.status(200).json({
             success: true,
             message: 'Data added successfully',
@@ -17,11 +18,11 @@ const postb = async (req, res) => {
     }
 };
 
-const getb = async (req, res) => {
+const getw = async (req, res) => {
     try {
-        const batoul = await Batoul.find({});
+        const whyus = await Whyus.find({});
         res.status(200).json({
-            data: batoul,
+            data: whyus,
         });
     } catch (error) {
         res.status(200).json({
@@ -31,30 +32,31 @@ const getb = async (req, res) => {
         });
     }
 };
-const deletedatab = async (req, res) => {
+
+const deletedataw = async (req, res) => {
     try {
-        const batoul = await Batoul.deleteOne({ _id: req.params.ID });
+        const whyus = await Whyus.deleteOne({ _id: req.params.ID });
         res.status(200).json({
             success: true,
             message: 'Data deleted successfully',
-            data: batoul,
+            data: whyus,
         });
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: 'Error occured while deleting the data',
+            message: 'Error occurred while deleting the data',
             error: error,
         });
     }
 };
 
-const updatedatab = async (req, res) => {
+const updatedataw = async (req, res) => {
     try {
-        const batoul = await Batoul.findByIdAndUpdate(req.params.ID, req.body);
+        const whyus = await Whyus.findByIdAndUpdate(req.params.ID, req.body);
         res.status(200).json({
             success: true,
             message: 'Data updated successfully.',
-            data: batoul,
+            data: whyus,
         });
     } catch (error) {
         res.status(400).json({
@@ -66,5 +68,8 @@ const updatedatab = async (req, res) => {
 };
 
 module.exports = {
-    postb, getb, deletedatab, updatedatab,
+    postw,
+    getw,
+    deletedataw,
+    updatedataw,
 };
