@@ -52,8 +52,8 @@ const deleteExperience = async (req, res) => {
 
 const updateExperience = async (req, res) => {
     try {
-        const { _id } = req.params;
-        const newExperience = await Experience.findByIdAndUpdate(_id, req.body, { new: true });
+        const { id } = req.params;
+        const newExperience = await Experience.findByIdAndUpdate(id, req.body, { new: true });
 
         if (!newExperience) {
             return res.status(404).json({

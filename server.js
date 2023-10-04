@@ -16,6 +16,12 @@ app.use('/', data);
 app.use('/Experience', Experience);
 app.use('/user', User)
 
+
+
+
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome to group 1 application." });
+});
 app.listen(PORT, () => {
     connectDB();
     console.log(`Server is running on http://localhost:${PORT}`);
