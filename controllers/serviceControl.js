@@ -2,16 +2,16 @@ const Service = require('../models/service');
 const postService = async (req, res) => {
     console.log(req.body);
     try {
-        const insertedService = await Service.create(req.body);
+        const insertedData = await Service.create(req.body);
         res.status(200).json({
             success: true,
             message: 'Data added successfully',
-            data: insertedService,
+            data: insertedData,
         });
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: 'Data not added successfully',
+            message: 'Data not added successfully ',
             error: error,
         });
     }
