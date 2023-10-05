@@ -20,6 +20,10 @@ const cors = require('cors');
 const PORT = 5000
 app.use(bodyParser.json());
 app.use(cors());
+app.get("/", (req, res) => {
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.send('API is running..');
+});
 app.use('/', data);
 app.use('/whyus', datawhy);
 app.use('/service', dataroute);
