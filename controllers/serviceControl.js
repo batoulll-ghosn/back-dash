@@ -11,7 +11,7 @@ const postService = async (req, res) => {
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: 'Data not added successfully',
+            message: 'Data not added successfully ',
             error: error,
         });
     }
